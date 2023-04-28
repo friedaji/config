@@ -1,25 +1,18 @@
-call plug#begin()
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-call plug#end()
-
-lua << END
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    theme = 'horizon',
+    --component_separators = { left = '', right = ''},
+    --section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -47,5 +40,3 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-
-END

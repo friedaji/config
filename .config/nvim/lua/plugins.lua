@@ -37,5 +37,30 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
 
+  use {'junegunn/vim-easy-align',
+    config = function()
+      vim.g.easy_align_delimiters = {
+        [';']  = { pattern = ';'        , left_margin = 0 },
+        ['[']  = { pattern = '['        , left_margin = 1, right_margin = 0 },
+        [']']  = { pattern = ']'        , left_margin = 0, right_margin = 1 },
+        [',']  = { pattern = ','        , left_margin = 0, right_margin = 1 },
+        [')']  = { pattern = ')'        , left_margin = 0, right_margin = 0 },
+        ['(']  = { pattern = '('        , left_margin = 0, right_margin = 0 },
+        ['=']  = { pattern = [[<\?=>\?]], left_margin = 1, right_margin = 1 },
+        ['|']  = { pattern = [[|\?|]]   , left_margin = 1, right_margin = 1 },
+        ['&']  = { pattern = [[&\?&]]   , left_margin = 1, right_margin = 1 },
+        [':']  = { pattern = ':'        , left_margin = 1, right_margin = 1 },
+        ['?']  = { pattern = '?'        , left_margin = 1, right_margin = 1 },
+        ['<']  = { pattern = '<'        , left_margin = 1, right_margin = 0 },
+        ['>']  = { pattern = '>'        , left_margin = 1, right_margin = 0 },
+        ['\\'] = { pattern = '\\'       , left_margin = 1, right_margin = 0 },
+        ['+']  = { pattern = '+'        , left_margin = 1, right_margin = 1 },
+        ['/']  = { pattern = [[//\+\|/\*\|\*/]] , delimiter_align = 1, ignore_groups = {'!Comment'}},
+        ['-']  = { filter  = [[^%s*--]], pattern = [[[-]{2,}]], stick_to_left = 0, left_margin = 1 , right_margin =1 , ignore_groups = {'String'}}
+      }
+    end,
+  }
+
+  use 'kg8m/vim-simple-align'
 
 end)

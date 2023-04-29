@@ -44,5 +44,11 @@ vim.opt.list = false
 -- Leder Key
 vim.g.mapleader = ','
 
+vim.g.easy_align_delimiters = {
+  ['/']  = { pattern = [[//\+\|/\*\|\*/]] , delimiter_align = 1, ignore_groups = {'!Comment'}},
+  ['-']  = { filter  = [[v/^\s\*/]], pattern = [[-\{2,\}]], stick_to_left = 0, left_margin = 1 , right_margin =1 , ignore_groups = {'String'}}
+}
+
+
 local keymap = vim.keymap
 
